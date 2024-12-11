@@ -21,6 +21,11 @@ pub enum ParserError {
     InvalidMint,
     InvalidBurn,
 
+    BufferFull,
+    InvalidTokenList,
+    UnknownToken,
+    ErrExpertModeMustBeEnabled,
+
     UnexpectedError,
 }
 
