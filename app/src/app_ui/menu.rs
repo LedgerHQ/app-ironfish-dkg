@@ -15,7 +15,7 @@
  *  limitations under the License.
  *****************************************************************************/
 use alloc::string::String;
-use include_gif::include_gif;
+use ledger_device_sdk::include_gif;
 use ledger_device_sdk::io::Comm;
 #[cfg(not(any(target_os = "stax", target_os = "flex")))]
 use ledger_device_sdk::io::Event;
