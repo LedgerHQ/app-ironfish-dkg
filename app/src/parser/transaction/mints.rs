@@ -50,7 +50,7 @@ impl<'a> MintList<'a> {
                     return Err(ParserError::InvalidMint.into());
                 }
 
-                total_len += (*obj_ptr).data.len();
+                total_len += (&(*obj_ptr).data).len();
 
                 obj_ptr.drop_in_place();
             }
