@@ -808,6 +808,8 @@ dependencies = [
 [[package]]
 name = "include_gif"
 version = "1.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ed329eea6ba198654ceab2c4dd41637d4890dc3c2bba845a57b5f81dac6d6a6"
 dependencies = [
  "flate2",
  "image",
@@ -839,7 +841,7 @@ dependencies = [
 
 [[package]]
 name = "ironfish-dkg"
-version = "1.1.4"
+version = "1.1.5"
 dependencies = [
  "aead",
  "arrayref",
@@ -939,6 +941,8 @@ checksum = "03087c2bad5e1034e8cace5926dec053fb3790248370865f5117a7d0213354c8"
 [[package]]
 name = "ledger_device_sdk"
 version = "1.29.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "92a4c9f96f2885791b16bb9346a930238287499a1811d01a4ab20a4e6af19629"
 dependencies = [
  "const-zero",
  "include_gif",
@@ -952,6 +956,8 @@ dependencies = [
 [[package]]
 name = "ledger_secure_sdk_sys"
 version = "1.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b1dc431c4628c6556e269a6a15e379a3fb8fac94f571a90bb7cd4e054eb63074"
 dependencies = [
  "bindgen",
  "cc",

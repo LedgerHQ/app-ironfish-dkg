@@ -1,6 +1,6 @@
 [package]
 name = "ironfish-dkg"
-version = "1.1.4" # This version is used by ledger to set the app version on deployment. The version displayed inside the main menu is set on app/.cargo/config.toml
+version = "1.1.5" # This version is used by ledger to set the app version on deployment. The version displayed inside the main menu is set on app/.cargo/config.toml
 edition = "2021"
 
 [[bin]]
@@ -85,4 +85,3 @@ icon = "flex_icon.gif"
 # solve why this is happening rather than using modified radium
 [patch.crates-io]
 radium = { git = "https://github.com/iron-fish/radium", rev = "674c8faf1e74f931a58671f70586e6435353e9b6" }
-ledger_device_sdk = {path="../../ledger-device-rust-sdk/ledger_device_sdk"}
