@@ -22,21 +22,25 @@ impl Default for Settings {
 
 impl Settings {
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn get_mut(&mut self) -> &mut AtomicStorage<[u8; SETTINGS_SIZE]> {
         return unsafe { DATA.get_mut() };
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn get_ref(&mut self) -> &AtomicStorage<[u8; SETTINGS_SIZE]> {
         return unsafe { DATA.get_ref() };
     }
 
+    #[allow(static_mut_refs)]
     pub fn get_element(&self, index: usize) -> Option<u8> {
         let storage = unsafe { DATA.get_ref() };
         let settings = storage.get_ref();
         settings.get(index).copied()
     }
 
+    #[allow(static_mut_refs)]
     pub fn set_element(&self, index: usize, value: u8) {
         if index >= SETTINGS_SIZE {
             return;
