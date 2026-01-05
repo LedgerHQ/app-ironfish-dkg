@@ -85,3 +85,6 @@ icon = "flex_icon.gif"
 # solve why this is happening rather than using modified radium
 [patch.crates-io]
 radium = { git = "https://github.com/iron-fish/radium", rev = "674c8faf1e74f931a58671f70586e6435353e9b6" }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("stax", "flex", "nanosplus"))', 'cfg(ledger)'] }
