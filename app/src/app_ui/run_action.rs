@@ -30,7 +30,7 @@ use ledger_device_sdk::nbgl::{Field, NbglGlyph, NbglReview, TransactionType};
 use crate::bolos::app_canary;
 use crate::utils::int_to_str;
 #[cfg(any(target_os = "stax", target_os = "flex"))]
-use include_gif::include_gif;
+use ledger_device_sdk::include_gif;
 
 #[inline(never)]
 pub fn ui_review_transaction<'a>(

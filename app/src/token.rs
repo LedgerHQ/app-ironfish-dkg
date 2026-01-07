@@ -28,13 +28,13 @@ pub fn get_token_list() -> Result<TokenList<'static>, ParserError> {
 }
 
 impl<'a> TokenList<'a> {
-    pub fn token(&self, asset_id: &str) -> Option<&TokenInfo> {
+    pub fn token(&self, asset_id: &str) -> Option<&TokenInfo<'_>> {
         self.assets
             .iter()
             .find(|asset| asset.identifier == asset_id)
     }
 
-    pub fn toke_by_symbol(&self, symbol: &str) -> Option<&TokenInfo> {
+    pub fn toke_by_symbol(&self, symbol: &str) -> Option<&TokenInfo<'_>> {
         self.assets.iter().find(|asset| asset.symbol == symbol)
     }
 }

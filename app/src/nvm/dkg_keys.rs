@@ -55,6 +55,7 @@ impl Default for DkgKeys {
 }
 
 impl DkgKeys {
+    #[allow(static_mut_refs)]
     pub fn is_valid_write(&self) -> Result<(), AppSW> {
         let buffer = unsafe { DATA.get_mut() };
         if !buffer.is_valid() {
@@ -65,12 +66,14 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn get_element(&self, index: usize) -> Option<u8> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
         buffer_ref.get(index).copied()
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn get_u16(&self, start_pos: usize) -> Option<usize> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
         let bytes = buffer_ref[start_pos..start_pos + 2].try_into().ok()?;
@@ -78,6 +81,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn set_element(&self, index: usize, value: u8) -> Result<(), AppSW> {
         let mut updated_data: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -95,6 +99,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn set_slice(&self, index: usize, value: &[u8]) -> Result<(), AppSW> {
         let end_index = index + value.len();
         self.check_write_pos(end_index - 1)?; // Check only the last position
@@ -111,6 +116,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn set_slice_with_len(&self, index: usize, value: &[u8]) -> Result<usize, AppSW> {
         let len = value.len();
 
@@ -134,6 +140,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn set_u16(&self, index: usize, value: u16) -> Result<usize, AppSW> {
         self.check_write_pos(index + 1)?; // Check only the last position
 
@@ -162,6 +169,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn save_round_1_data(
         &self,
         identities: &Vec<Identity>,
@@ -189,6 +197,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn update_keys_status(
         &self,
         status: DkgKeyStatus,
@@ -208,6 +217,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn save_keys(
         &mut self,
         key_package: &KeyPackage,
@@ -256,6 +266,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn get_keys_status(&mut self) -> Result<DkgKeyStatus, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -263,6 +274,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn backup_keys(&self) -> Result<Vec<u8>, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -270,6 +282,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn load_group_secret_key(&mut self) -> Result<GroupSecretKeyGuard, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -277,6 +290,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn load_frost_public_key_package(&mut self) -> Result<FrostPublicKeyPackage, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -284,6 +298,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn load_key_package(&mut self) -> Result<KeyPackageGuard, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -291,6 +306,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn load_min_signers(&mut self) -> Result<usize, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -298,6 +314,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn load_identity_index(&mut self) -> Result<usize, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
@@ -305,6 +322,7 @@ impl DkgKeys {
     }
 
     #[inline(never)]
+    #[allow(static_mut_refs)]
     pub fn load_identities(&mut self) -> Result<Vec<Identity>, AppSW> {
         let buffer_ref: [u8; DKG_KEYS_MAX_SIZE] = unsafe { *DATA.get_mut().get_ref() };
 
