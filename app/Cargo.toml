@@ -1,6 +1,6 @@
 [package]
 name = "ironfish-dkg"
-version = "1.1.5" # This version is used by ledger to set the app version on deployment. The version displayed inside the main menu is set on app/.cargo/config.toml
+version = "1.1.6" # This version is used by ledger to set the app version on deployment. The version displayed inside the main menu is set on app/.cargo/config.toml
 edition = "2021"
 
 [[bin]]
@@ -10,7 +10,7 @@ path = "bin-app/app.rs"
 
 [dependencies]
 # ledger_device_sdk = { git = "https://github.com/Zondax/ledger-device-rust-sdk", rev = "446bd4c11c328e422e68f056b08ed38952a0853f", optional = true }
-ledger_device_sdk = { version = "1.30.0", optional = true }
+ledger_device_sdk = { version = "1.33.0", optional = true }
 serde = { version = "1.0.192", default_features = false, features = ["derive"] }
 serde-json-core = { git = "https://github.com/rust-embedded-community/serde-json-core" }
 hex = { version = "0.4.3", default-features = false, features = [
